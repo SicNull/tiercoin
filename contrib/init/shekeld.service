@@ -1,0 +1,26 @@
+[Unit]
+Description=Tiercoin's distributed currency daemon
+After=network.target
+
+[Service]
+User=tiercoin
+Group=tiercoin
+
+Type=forking
+PIDFile=/var/lib/tiercoind/tiercoind.pid
+
+ExecStart=/usr/bin/tiercoind -daemon -pid=/var/lib/tiercoind/tiercoind.pid \
+          -conf=/etc/tiercoin/tiercoin.conf -datadir=/var/lib/tiercoind
+
+ExecStop=-/usr/bin/tiercoin-cli -conf=/etc/tiercoin/tiercoin.conf \
+         -datadir=/var/lib/tiercoind stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

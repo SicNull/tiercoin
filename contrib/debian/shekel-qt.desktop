@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Tiercoin
+Comment=Tiercoin P2P Cryptocurrency
+Comment[fr]=Tiercoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Tiercoin, eşten eşe kriptografik sanal para birimi
+Exec=tiercoin-qt %u
+Terminal=false
+Type=Application
+Icon=tiercoin128
+MimeType=x-scheme-handler/tiercoin;
+Categories=Office;Finance;
